@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UniversityApp.Views.HomePage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <ScrollView BindingContext="{Binding Home}">
+            <StackLayout>
+
+                <Label FontAttributes="Bold"
+                       FontSize="Title"
+                       HorizontalOptions="Center"
+                       VerticalOptions="CenterAndExpand"
+                       Text="Students"></Label>
+
+                <ImageButton VerticalOptions="CenterAndExpand"
+                             BackgroundColor="Transparent"
+                             HeightRequest="250"
+                             Command="{Binding GoToStudentsCommand}"
+                             Source="student"></ImageButton>
+
+                <Label FontAttributes="Bold"
+                       FontSize="Title"
+                       HorizontalOptions="Center"
+                       VerticalOptions="CenterAndExpand"
+                       Text="Instructors"></Label>
+
+                <ImageButton VerticalOptions="CenterAndExpand"
+                             BackgroundColor="Transparent"
+                             HeightRequest="250"
+                             Command="{Binding GoToInstructorsCommand}"
+                             Source="instructor"></ImageButton>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

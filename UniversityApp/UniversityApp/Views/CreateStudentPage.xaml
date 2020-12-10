@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+            x:Class="UniversityApp.Views.CreateStudentPage"
+            BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <ScrollView BindingContext="{Binding CreateStudent}">
+            <StackLayout Padding="15">
+                <Label
+                    Text="New Student"
+                       FontSize="Title"
+                       HorizontalOptions="Center"
+                       TextColor="blue"></Label>
+
+                <Grid Margin="10, 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="ID" Grid.Row="0" Grid.Column="0" VerticalOptions="Center"></Label>
+                    <Entry Keyboard="Numeric" 
+                       Grid.Row="0" 
+                       Grid.Column="1"
+                       Text="{Binding ID}"></Entry>
+
+                    <Label Text="LastName" Grid.Row="1" Grid.Column="0" VerticalOptions="Center"></Label>
+                    <Entry Keyboard="Text" 
+                       Grid.Row="1" 
+                       Grid.Column="1"
+                       Text="{Binding LastName}"></Entry>
+
+                    <Label Text="FirstMidName" Grid.Row="2" Grid.Column="0" VerticalOptions="Center"></Label>
+                    <Entry Keyboard="Text" 
+                       Grid.Row="2" 
+                       Grid.Column="1"
+                       Text="{Binding FirstMidName}"></Entry>
+
+                    <Label Text="EnrollmentDate" Grid.Row="3" Grid.Column="0" VerticalOptions="Center"></Label>
+                    <DatePicker Date="{Binding EnrollmentDate}"
+                       Grid.Row="3" 
+                       Grid.Column="1"
+                       Format="yyyy-mm-dd"></DatePicker>
+
+                </Grid>
+                <Button Text="Save"
+                        CornerRadius="23"
+                        HeightRequest="46"
+                        BackgroundColor="Green"
+                        TextColor="White"
+                        Command="{Binding SaveCommand}"
+                        IsEnabled="{Binding IsEnabled}"></Button>
+
+                <ActivityIndicator IsRunning="{Binding IsRunning}"></ActivityIndicator>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

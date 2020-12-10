@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UniversityApp.Views.LoginPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <ScrollView BindingContext="{Binding Login}">
+
+            <StackLayout Padding="15">
+
+                <Image HeightRequest="150"
+                       Source="logo_utap"></Image>
+
+                <Grid Margin="10,0"
+                      VerticalOptions="CenterAndExpand">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0"
+                           Grid.Column="0"
+                           VerticalOptions="Center"
+                           FontAttributes="Bold"
+                           Text="Email"></Label>
+                    <Entry Grid.Row="0"
+                           Grid.Column="1"
+                           Keyboard="Email"
+                           Text="{Binding Email}"
+                           Placeholder="Enter email."></Entry>
+
+                    <Label Grid.Row="1"
+                           Grid.Column="0"
+                           VerticalOptions="Center"
+                           FontAttributes="Bold"
+                           Text="Password"></Label>
+                    <Entry Grid.Row="1"
+                           Grid.Column="1"
+                           IsPassword="True"
+                           Text="{Binding Password}"
+                           Placeholder="Enter password."></Entry>
+
+                    <Button Grid.Row="2"
+                            Grid.ColumnSpan="2"
+                            BackgroundColor="Green"
+                            CornerRadius="23"
+                            HeightRequest="46"
+                            Text="Login"
+                            IsEnabled="{Binding IsEnabled}"
+                            Command="{Binding LoginCommand}"
+                            TextColor="White"></Button>
+
+                </Grid>
+
+                <ActivityIndicator VerticalOptions="CenterAndExpand"
+                                   IsRunning="{Binding IsRunning}"></ActivityIndicator>
+
+                <Label HeightRequest="46"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       Text="Copyright © 2020. All rights reserved."></Label>
+
+            </StackLayout>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
